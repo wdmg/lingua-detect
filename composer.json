@@ -1,0 +1,37 @@
+{
+    "name": "wdmg/lingua-detect",
+    "description": "Language detection by source text.",
+    "keywords": ["LinguaDetect", "language", "detection"],
+    "homepage": "https://github.com/wdmg/lingua-detect",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+          "name": "Alexsander Vyshnyvetskyy",
+          "email": "alex.vyshnyvetskyy@gmail.com"
+        },
+        {
+          "name": "W.D.M.Group, Ukraine",
+          "email": "wdmg.com.ua@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "wdmg\\lingua-detect\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "satooshi/php-coveralls": "~1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "5.6.32"
+        }
+    }
+}
