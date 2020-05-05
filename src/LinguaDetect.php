@@ -39,8 +39,8 @@ class LinguaDetect {
         'pl' => 'AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻƵaąbcćdeęfghijklłmnńoópqrsśtuvwxyzźżƶ', // Polish (Polski)
         'hu' => 'AÁBCDEÉFGHIÍJKLMNOÓÖŐPRSTUÚÜŰVZQWXYaábcdeéfghiíjklmnoóöőprstuúüűvzqwxy', // Hungarian (Magyar)
         'el' => 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω', // Greek (Ελληνικά)
-        'pt' => null, // Portuguese (Português)
-        'cs' => null, // Czech (Čeština)
+        /*'pt' => null, // Portuguese (Português)
+        'cs' => null, // Czech (Čeština)*/
     ];
 
     public $patterns = [
@@ -50,10 +50,12 @@ class LinguaDetect {
             '(ing|tion|ed|age|’s|’ve|n’t|’d)+\b', // word endings
         ],
         'ru' => [
-            '[Ё|Й|Ъ|Ы|Э|Щ|ё|й|ъ|ы|э|щ]', // consist special chars
+            '[ё|й|ъ|ы|э|щ]', // consist special chars
+            '\s(и|или)\s', // common one-letter word
         ],
         'uk' => [
-            '[Є|И|І|Ї|Й|Ґ|Є|Щ|є|и|і|ї|й|ґ|є|щ]', // consist special charts
+            '[є|і|ї|ґ|є|щ]', // consist special charts
+            '\s(і|або|чи|та)\s', // common one-letter word
         ],
         'fr' => [
             '[â|ç|è|é|ê|î|ô|û|ë|ï|œ|æ]', // consist special chars
@@ -74,11 +76,13 @@ class LinguaDetect {
             '(en|er|ern|st|ung|chen|tät)+\b', // word endings
         ],
         'it' => [
+            '[á|é|í|ó|ú|¿|¡|ñ]', // consist special chars
             '\b(?:non|il|per|con|del)[a|e|i|o|u|è]\b', // every native word ends in a vowel
-            '(o|a|zione|mento|tà|aggio)+\b', // word endings
-            '\sè\s', // common one-letter word
-            '\w+[à]', // almost always occurs in the last letter of words
-            '\w+(gli|gn|sci)\w+', // letter sequences
+            '\w+(o|a|zione|mento|tà|aggio)+\b', // word endings
+            '\s(è|e|al|del|di)\s', // common one-letter word
+            '\b(la)+', // word beginnings
+            '\w+à', // almost always occurs in the last letter of words
+            '(gli|gn|sci)', // letter sequences
             '\w+(tt|zz|cc|ss|bb|pp|ll)\w+', // double consonants are frequent
         ],
         'pl' => [
@@ -144,7 +148,7 @@ class LinguaDetect {
 
                     $hasMatch = false;
                     foreach ($pattern as $value) {
-                        if (preg_match("/$value/", $word)) {
+                        if (preg_match("/$value/u", " " . $word. " ")) {
                             $hasMatch = true;
                         }
                     }
