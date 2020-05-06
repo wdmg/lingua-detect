@@ -1,5 +1,7 @@
 <?php
 
+namespace wdmg\lingua;
+
 /**
  * LinguaDetect
  *
@@ -9,8 +11,8 @@
  * what language a document is written in with high accuracy. See more
  * [https://en.wikipedia.org/wiki/Wikipedia:Language_recognition_chart]
  *
- * @category        Class
- * @version         1.0.0
+ * @category        Library
+ * @version         1.0.1
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/lingua-detect
  * @copyright       Copyright (c) 2020 by W.D.M.Group, Ukraine (https://wdmg.com.ua/)

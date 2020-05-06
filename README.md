@@ -33,6 +33,7 @@ To install the library, run the following command in the console:
     ?>
 
 # Status and version [ready to use]
+* v.1.0.1 - Added namespace
 * v.1.0.0 - Added LinguaDetect() class
 
 # Copyrights

@@ -5,7 +5,7 @@
     "homepage": "https://github.com/wdmg/lingua-detect",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
           "name": "Alexsander Vyshnyvetskyy",
@@ -17,8 +17,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "wdmg\\lingua-detect\\": "src/"
+        "psr-4": {
+            "wdmg\\lingua\\": "src"
         }
     },
     "require": {
